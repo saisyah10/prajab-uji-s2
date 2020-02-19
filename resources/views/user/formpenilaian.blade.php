@@ -55,6 +55,18 @@
                       var noTest = $('#namasiswa option:selected').data("note");
                       $('#id_siswa').val(idValue);
                       $('#no_test').val(noTest);
+                      $('#skategori1').val("");
+                      $('#skategori2').val("");
+                      $('#skategori3').val("");
+                      $('#skategori4').val("");
+                      $('#skategori5').val("");
+                      $('#skategori6').val("");
+                      $('#skategori7').val("");
+                      $('#skategori8').val("");
+                      $('#skategori9').val("");
+                      $('#skategori10').val("");
+                      $('#skategori11').val("");
+                      $('#skategori12').val("");
                   });
                   </script>
                   
@@ -112,7 +124,7 @@
                     
                     <td style="color:#000000;" class="text-justify">Mampu menjelaskan latar belakang permasalahan yang diangkat dari sudut pandang yang lebih luas (kenegaraan/korporasi) menjadi permasalahan yang lebih spesifik (unit/organisasi). <br>Mampu mengembangkan paradigma untuk melihat detail permasalahan tanpa kehulangan sudut pandang strategis.</td>
                     <td style="color:#000000;">
-                    <input type="text" class="form-control" id="skategori1" name="skategori1">
+                    <input type="text" class="form-control" id="skategori1" name="skategori1" Minlength="2" Maxlength="3">
                   </td>
                   </tr>
                   <tr>
@@ -121,7 +133,7 @@
                     <td style="color:#000000;" ><b>Kedalaman Analisa dan Keilmuan (2,5%)</b></td>
                     <td style="color:#000000;" class="text-justify">Mampu menjelaskan teori-teori yang menjadi dasar dalam analisa, termasuk best practice yang sudah dilaksanakan di perusahaan/unit lain. <br>Mampu menemukan akar permasaahan/key success factor yang memiliki peran signifikan dalam perbaikan proses bisnis. <br>Mampu menyusun argumentasi yang kuat untuk menghubungkan antara teori yang digunakan dengan kerangka berpikir peserta. Proses analisa sudah dilakukan secara komperhensif dengan perangkat analisa yang sesuai.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori2" name="skategori2" >
+                    <input type="text"  class="form-control" id="skategori2" name="skategori2" Minlength="2" Maxlength="3">
                     </div>
                     </td>
                   </tr>
@@ -132,7 +144,7 @@
                     
                     <td style="color:#000000;" class="text-justify">Peserta dapat menggunakan perencanaankerja dalam menginisiasi dan mengeksekusi Program yang telah dibuat. <br>Peserta dapat menyusun workplan sesuai target yang dituju.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori3" name="skategori3">
+                    <input type="text"  class="form-control" id="skategori3" name="skategori3" Minlength="2" Maxlength="3">
                     </div>
                     </td>
                   </tr>
@@ -142,7 +154,7 @@
                     <td style="color:#000000;" ><b>Eksekusi dan Monitoring Program Terobosan/Breakthrough (10%)</b></td>
                     <td style="color:#000000;" class="text-justify">Peserta dapat memastikan tahapan eksekusi program berjalan sesuai workplan, target dan proses yang telah ditetapkan.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori4" name="skategori4">
+                    <input type="text"  class="form-control" id="skategori4" name="skategori4" Minlength="2" Maxlength="3">
                     </div>
                     </td>
                   </tr>
@@ -153,7 +165,7 @@
                     
                     <td style="color:#000000;" class="text-justify">Menunjukkan kemampuan berkomunikasi yang efektif kepada seluruh anggota tim maupun stakeholder yang terkait dengan program. Mulai dariinisiasi, pelaksanaan hingga membina hubungan baik. <br>Mencari dan memastikan ketersediaan sumber daya untuk mendukung keberhasilan program.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori5" name="skategori5">
+                    <input type="text"  class="form-control" id="skategori5" name="skategori5" Minlength="2" Maxlength="3">
                     </div>
                     </td>
                   </tr>
@@ -163,7 +175,7 @@
                     <td style="color:#000000;" ><b>Kerja sama tim (10%)</b></td>
                     <td style="color:#000000;" class="text-justify">Mengambil tindakan yang dapat menyelaraskan kepentingan anggota tim dengan pencapaian tujuan program. <br>Memotivasi anggota timnya untuk dapat menjalankan peran dalam Program Terobosan/Breakthrough.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori6" name="skategori6">
+                    <input type="text"  class="form-control" id="skategori6" name="skategori6" Minlength="2" Maxlength="3">
                     </div>
                     </td>
                   </tr>
@@ -174,7 +186,7 @@
                     
                     <td style="color:#000000;" class="text-justify">Memastikan bahwa Peserta menjalankan peran sebagaimana sebutan jabatan pertama.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori7" name="skategori7">
+                    <input type="text"  class="form-control" id="skategori7" name="skategori7" Minlength="2" Maxlength="3">
                     </div>
                     </td>
                   </tr>
@@ -185,7 +197,7 @@
                    
                     <td style="color:#000000;" class="text-justify">Mampu melakukan analisa sesuai dengan mistar kompetensi jabatan proyeksi.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori8" name="skategori8">
+                    <input type="text"  class="form-control" id="skategori8" name="skategori8" Minlength="2" Maxlength="3">
                     </div>
                     </td>
                   </tr>
@@ -195,7 +207,7 @@
                     <td style="color:#000000;" ><b>Potansi Dampak Program (10%)</b></td>
                     <td style="color:#000000;" class="text-justify">Mampu menunjukan Potensi Dampak atas program yang dilaksanakan.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori9" name="skategori9">
+                    <input type="text"  class="form-control" id="skategori9" name="skategori9" Minlength="2" Maxlength="3">
                     </div>
                     </td>
                   </tr>
@@ -206,7 +218,7 @@
                    
                     <td style="color:#000000;" class="text-justify">Peserta melakukan tracking biaya dan efisiensi biaya program</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori10" name="skategori10">
+                    <input type="text"  class="form-control" id="skategori10" name="skategori10" Minlength="2" Maxlength="3">
                     </div>
                     </td>
                   </tr>
@@ -216,7 +228,7 @@
                     <td style="color:#000000;" ><b>Global Competency (10%)</b></td>
                     <td style="color:#000000;" >Peserta menggunakan Best Practice yang ada dan menggunakan untuk menyelesaikan.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori11" name="skategori11">
+                    <input type="text"  class="form-control" id="skategori11" name="skategori11" Minlength="2" Maxlength="3">
                     </div>
                     </td>
                   </tr>
@@ -226,7 +238,7 @@
                     <td style="color:#000000;" ><b>Digital Competency (15%)</b></td>
                     <td style="color:#000000;" >Peserta menggunakanbig data dan melakukan digitalisasi proses manual pada project yang dilakukan.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori12" name="skategori12">
+                    <input type="text"  class="form-control" id="skategori12" name="skategori12" Minlength="2" Maxlength="3">
                     </div>
                     </td>
                   </tr>
