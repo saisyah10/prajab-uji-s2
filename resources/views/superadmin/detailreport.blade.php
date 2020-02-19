@@ -1,6 +1,7 @@
 @extends('baseadmin')
-@section('title','Detail Report')
+@section('title','Form Penguji')
 @section('content')
+<script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script> 
 
 <div class="container-fluid">
 
@@ -39,8 +40,8 @@
                   <thead>
                     <tr>
                     <th>No</th>
-                    <th>Id Siswa</th>
-                    <th>Id Penguji</th>
+                    <th>Nama Siswa</th>
+                    <th>Nama Penguji</th>
                     <th>Keterangan Penguji</th>
                     <th>Nilai Sub Kategori 1 Bobot 2,5%</th>
                     <th>Nilai Sub Kategori 2 Bobot 2,5%</th>

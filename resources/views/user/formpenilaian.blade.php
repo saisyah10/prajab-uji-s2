@@ -14,7 +14,9 @@
             <!-- Remove This Before You Start -->
             <div class="form-group">
           <br>
+          
             <h3 class="m-0 font-weight-bold " ><center>Selamat Datang di Halaman Penilaian Uji Akhir Pembelajaran Prajabatan s2</center></h3>  
+            <a href="/user/lihathasil" class="btn btn-md btn-primary">LIHAT HASIL</a>
             <br>
             <div class="row">
             <div class="col-md-6">            
@@ -23,12 +25,11 @@
                 <label for="nama">Penguji : </label>
                 <input type="text"  class="form-control" id="nama" name="nama" value="{{Session::get('nama_penguji')}}" disabled>
 
-                <label for="status">Status : </label>
+                <label for="status">Kelas : </label>
                 <!-- <input type="text"  class="form-control" id="status" name="status" value="{{Session::get('status')}}" disabled> -->
                 <select name="status" id="status" class="custom-select" style="width:700px;">
-                <option value="1">Penguji 1</option>
-                <option value="2">Penguji 2</option>
-                <option value="3">Penguji 3</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
                 </select>
             </div>
             </div>
@@ -124,7 +125,7 @@
                     
                     <td style="color:#000000;" class="text-justify">Mampu menjelaskan latar belakang permasalahan yang diangkat dari sudut pandang yang lebih luas (kenegaraan/korporasi) menjadi permasalahan yang lebih spesifik (unit/organisasi). <br>Mampu mengembangkan paradigma untuk melihat detail permasalahan tanpa kehulangan sudut pandang strategis.</td>
                     <td style="color:#000000;">
-                    <input type="text" class="form-control" id="skategori1" name="skategori1" Minlength="2" Maxlength="3">
+                    <input type="text" class="form-control" id="skategori1" name="skategori1" Minlength="2" Maxlength="3" >
                   </td>
                   </tr>
                   <tr>

@@ -177,6 +177,11 @@ class MasterNilaiController extends Controller
         return view('superadmin/detailreport',compact('datad'));
     }
 
+    public function showhasil(){
+        return view('user/formlihathasil');
+    }
+
+    
     /**
      * Show the form for editing the specified resource.
      *
