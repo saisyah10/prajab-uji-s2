@@ -65,7 +65,7 @@
                         <td>{{$no++ }}</td>
                         <td>{{$datas->s_nama}}</td>
                         <td>{{$datas->p_nama}}</td>
-                        <td>{{$datas->status_penguji}}</td>
+                        <td>{{$datas->kelas_penguji}}</td>
                         <td>{{$datas->total_subkat_1}} </td>
                         <td>{{$datas->total_subkat_2}} </td>
                         <td>{{$datas->total_subkat_3}} </td>

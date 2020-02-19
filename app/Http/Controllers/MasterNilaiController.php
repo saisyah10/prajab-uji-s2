@@ -121,12 +121,12 @@ class MasterNilaiController extends Controller
      */
     public function show($id)
     {
-        $datad = Masternilai::with(['penguji','siswa'])->where('id_siswa',$id)->get();
+        $datad = Masternilai::where('id_siswa',$id)->get();
 
         $dataq = DB::table('masternilai')
             ->join('siswa', 'masternilai.id_siswa', '=', 'siswa.id')
             ->join('penguji', 'masternilai.id_penguji', '=', 'penguji.id')
-            ->select('masternilai.*', 'siswa.nama as s_nama', 'penguji.nama as p_nama')->where('id_siswa',$id)
+            ->select('masternilai.*', 'siswa.nama as s_nama', 'penguji.nama as p_nama')->where('penguji',$id)
             ->get();
 
         $datas = Siswa::where('id',$id)->first();
@@ -208,7 +208,45 @@ class MasterNilaiController extends Controller
         return view('superadmin/detailreport',compact('datad','dataq'));
     }
 
-    public function showhasil(){
+    public function showhasil($id){
+
+        $dataHasil = Masternilai::where('id_penguji',$id)->get();
+
+        $dataq = DB::table('masternilai')
+            ->join('siswa', 'masternilai.id_siswa', '=', 'siswa.id')
+            ->join('penguji', 'masternilai.id_penguji', '=', 'penguji.id')
+            ->select('masternilai.*', 'siswa.nama as s_nama', 'penguji.nama as p_nama')->where('id_penguji',$id)
+            ->get();
+
+        $semuanilai = 0;
+
+        foreach( $dataq as $datadetail)
+        {
+            $nilai_1 = $datadetail->nilai_subkat_1 * 2.5/100;
+            $nilai_2 = $datadetail->nilai_subkat_2 * 2.5/100;
+            $nilai_3 = $datadetail->nilai_subkat_3 * 10/100;
+            $nilai_4 = $datadetail->nilai_subkat_4 * 10/100;
+            $nilai_5 = $datadetail->nilai_subkat_5 * 10/100;
+            $nilai_6 = $datadetail->nilai_subkat_6 * 10/100;
+            $nilai_7 = $datadetail->nilai_subkat_7 * 5/100;
+            $nilai_8 = $datadetail->nilai_subkat_8 * 10/100;
+            $nilai_9 = $datadetail->nilai_subkat_9 * 10/100;
+            $nilai_10 = $datadetail->nilai_subkat_10 * 5/100;
+            $nilai_11 = $datadetail->nilai_subkat_11 * 10/100;
+            $nilai_12 = $datadetail->nilai_subkat_12 * 15/100;
+
+            $total_nilai = $nilai_1+$nilai_2+$nilai_3+$nilai_4+$nilai_5+$nilai_6+$nilai_7+$nilai_8+$nilai_9+$nilai_10+$nilai_11+$nilai_12;
+            
+            $semuanilai += $total_nilai/3;     
+
+            
+        }
+
+        return view('user/formlihathasil',compact('dataHasil','dataq'));
+    }
+
+    public function hasilshow()
+    {
         return view('user/formlihathasil');
     }
 

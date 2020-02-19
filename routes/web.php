@@ -78,4 +78,6 @@ Route::get('/user/PrintDetailReport/{id}','MasterNilaiController@printprvdtl');
 
 Route::get('/user/dropdown/{id}','PengujiController@siswaDropdown');
 
-Route::get('/user/lihathasil','MasterNilaiController@showhasil');
+Route::get('/user/lihathasil/{id}','MasterNilaiController@showhasil');
+
+Route::get('/user/edithasil/{id}','MasterNilaiController@edithasil');

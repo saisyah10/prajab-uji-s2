@@ -16,7 +16,7 @@
           <br>
           
             <h3 class="m-0 font-weight-bold " ><center>Selamat Datang di Halaman Penilaian Uji Akhir Pembelajaran Prajabatan s2</center></h3>  
-            <a href="/user/lihathasil" class="btn btn-md btn-primary">LIHAT HASIL</a>
+            <a href="/user/lihathasil/{{Session::get('id_penguji')}}" class="btn btn-md btn-primary">LIHAT HASIL</a>
             <br>
             <div class="row">
             <div class="col-md-6">            
@@ -78,8 +78,10 @@
          </div>
             <div class="card shadow mb-4">
             <div class="card-header py-3">
+            <div class="row">
               <h6 class="m-0 font-weight-bold " style="color:#000000;">Form Penilaian Uji Akhir Pembelajaran Prajabatan s2</h6>
-              <h6 class="m-0 font-weight-bold " style="color:#000000;" style="text-align:right" >Max Nilai 100</h6>
+              <h6 class="m-0 font-weight-bold " style="color:#000000;" style="margin-left:100px" >Max Nilai 100</h6>
+            </div>
             </div>
             <div class="card-body">
             @if ($message = Session::get('success'))
