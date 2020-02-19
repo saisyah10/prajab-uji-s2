@@ -46,7 +46,7 @@ class PengujiController extends Controller
 
         $data = Penguji::where('username',$username)->first();
         if($data){ //apakah email tersebut ada atau tidak
-            if(Hash::check($password,$data->password)){
+            if(($data->password) == ($password) ){
                 Session::put('nama_penguji',$data->nama);
                 Session::put('id_penguji',$data->id);
                 Session::put('login',TRUE);
@@ -94,7 +94,7 @@ class PengujiController extends Controller
         $data->nama = $request->nama;
         $data->jabatan = $request->jabatan;
         $data->username = $request->username;
-        $data->password = bcrypt($request->password);
+        $data->password = $request->password;
         $data->save();
         return redirect('/superadmin/listpenguji')->with('alert-success','Berhasil Menambah Data Penguji');
     }
@@ -115,25 +115,33 @@ class PengujiController extends Controller
      */
     public function update(Request $request)
     {
+        $this->validate($request, [
+            'nama' => 'required|min:4',
+            'jabatan' => 'required|min:4',
+            'username' => 'required|min:5',
+            'password' => 'required',
+            'confirmation' => 'required|same:password',
+        ]);
+
         $data = Penguji::where('id',$request->id_penguji)->first();
         $data->nama = $request->nama;
         $data->jabatan = $request->jabatan;
         $data->username = $request->username;
-        //$data->password = bcrypt($request->password);
+        $data->password = $data->password;  
         $data->save();
         return redirect('/superadmin/listpenguji')->with('alert-success','Data berhasil diubah!');
     }
 
-    public function updatePassPenguji(Request $request)
-    {
-        $data = Penguji::where('id',$request->id_penguji)->first();
-        if($request->password == $request->confirmation)
-        {
-            $data->password = bcrypt($request->password);
-        }
-        $data->save();
-        return redirect()->route('/superadmin/listpenguji')->with('alert-success','Password berhasil diubah!');
-    }
+    // public function updatePassPenguji(Request $request)
+    // {
+    //     $data = Penguji::where('id',$request->id_penguji)->first();
+    //     if($request->password == $request->confirmation)
+    //     {
+    //         $data->password = bcrypt($request->password);
+    //     }
+    //     $data->save();
+    //     return redirect()->route('/superadmin/listpenguji')->with('alert-success','Password berhasil diubah!');
+    // }
 
     public function deletePengujiPost($id)
     {

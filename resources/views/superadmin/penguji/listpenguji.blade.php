@@ -28,9 +28,8 @@
                     <th>No</th>
                     <th>Nama Penguji</th>
                     <th>Jabatan</th>
-                    
                     <th>Username</th>
-                    <!-- <th>Password</th> -->
+                    <th>Password</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>
@@ -41,9 +40,8 @@
                     <td>{{ $no++ }}</td>
                         <td>{{$datas->nama}}</td>
                         <td>{{$datas->jabatan}}</td>
-                        
                         <td>{{$datas->username}}</td>
-                        <!-- <td>{{$datas->password}}</td> -->
+                        <td>{{$datas->password}}</td>
                         <td>
                             <form action="/superadmin/deletepengujipost/{{ $datas->id }}" method="post">
                                 {{ csrf_field() }}

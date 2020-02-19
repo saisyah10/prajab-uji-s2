@@ -36,7 +36,7 @@ class AdminController extends Controller
 
         $data = Admin::where('email',$email)->first();
         if($data){ //apakah email tersebut ada atau tidak
-            if(Hash::check($password,$data->password)){
+            if(($data->password) == ($password) ){
                 Session::put('nama',$data->nama);
                 Session::put('email',$data->email);
                 Session::put('id_admin',$data->id);
@@ -78,7 +78,7 @@ class AdminController extends Controller
         $data =  new Admin();
         $data->nama = $request->nama;
         $data->email = $request->email;
-        $data->password = bcrypt($request->password);
+        $data->password = $request->password;
         $data->save();
         return redirect('/')->with('alert-success','Kamu berhasil Register');
     }
@@ -134,24 +134,30 @@ class AdminController extends Controller
      */
     public function update(Request $request)
     {
+        $this->validate($request, [
+            'nama' => 'required|min:4',
+            'email' => 'required|min:4|email',
+            'password' => 'required',
+            'confirmation' => 'required|same:password',
+        ]);
         $data = Admin::where('id',$request->id_admin)->first();
         $data->nama = $request->nama;
         $data->email = $request->email;
-        //$data->password = bcrypt($request->password);
+        $data->password = $request->password;
         $data->save();
         return redirect('/')->with('alert-success','Data berhasil diubah!');
     }
 
-    public function updatePass(Request $request)
-    {
-        $data = Admin::where('id',$request->id_admin)->first();
-        if($request->password == $request->confirmation)
-        {
-            $data->password = bcrypt($request->password);
-        }
-        $data->save();
-        return redirect('/')->with('alert-success','Password berhasil diubah!');
-    }
+    // public function updatePass(Request $request)
+    // {
+    //     $data = Admin::where('id',$request->id_admin)->first();
+    //     if($request->password == $request->confirmation)
+    //     {
+    //         $data->password = bcrypt($request->password);
+    //     }
+    //     $data->save();
+    //     return redirect('/')->with('alert-success','Password berhasil diubah!');
+    // }
 
     /**
      * Remove the specified resource from storage.

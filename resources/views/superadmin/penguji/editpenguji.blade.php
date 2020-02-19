@@ -41,43 +41,24 @@
                         <label for="username">Username :</label>
                         <input type="text" class="form-control" id="username" name="username" value="{{ $datas->username }}">
                     </div>
+                    <div class="form-group">
+                        <label for="username">Password :</label>
+                        <input type="text" class="form-control" id="password" name="password" value="{{ $datas->password }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Confirm Pasword :</label>
+                        <input type="text" class="form-control" id="confirmation" name="confirmation" >
+                    </div>
                     
             
                     <div class="form-group">
                         <button type="submit" class="btn btn-md btn-primary">Edit Data</button>
-                        <button type="reset" class="btn btn-md btn-danger">Cancel</button>
+                        <a href="/superadmin/listpenguji" class="btn btn-md btn-danger">Cancel</a>
                     </div>
                 </form>
                 @endforeach
             </div>
-            <br>
-            <hr>
-            <br>
-            <div class="content">
-            <h1>Edit Password Penguji</h1>
-                <hr>
-                @foreach($data as $datas)
-                <form  action="{{ url('/superadmin/editpasswordadmin') }}" method="POST">
-                    {{ csrf_field() }}
-                    <input type="text"  class="form-control" id="id_penguji" name="id_penguji" value="{{ $datas->id }}" hidden="true">
-                    <div class="form-group">
-                        <label for="password">Password Baru:</label>
-                        <input type="password" class="form-control" id="password" name="password" value="">
-                    </div>
-                    <div class="form-group">
-                        <label for="psw">Konfirmasi Password :</label>
-                        <input type="password" class="form-control" id="confirmation" name="confirmation">
-                    </div>
-                    
-                
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-md btn-primary">Submit</button>
-                        <button type="reset" class="btn btn-md btn-danger">Cancel</button>
-                    </div>
-                </form>
-                @endforeach
-            </div>
-            <!-- /.content -->
+            
         </section>
         <!-- /.main-section -->
 

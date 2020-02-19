@@ -108,7 +108,7 @@
                   <tr>
                   <td style="color:#000000;" rowspan="2" >Strategist (Ahli strategi) </td>
                     <td style="color:#000000;">1.</td>
-                    <td style="color:#000000;" >Issue Strategis (2,5%)</td>
+                    <td style="color:#000000;" > <b>Issue Strategis (2,5%)</b></td>
                     
                     <td style="color:#000000;" class="text-justify">Mampu menjelaskan latar belakang permasalahan yang diangkat dari sudut pandang yang lebih luas (kenegaraan/korporasi) menjadi permasalahan yang lebih spesifik (unit/organisasi). <br>Mampu mengembangkan paradigma untuk melihat detail permasalahan tanpa kehulangan sudut pandang strategis.</td>
                     <td style="color:#000000;">
@@ -118,7 +118,7 @@
                   <tr>
                     <td style="color:#000000;">2.</td>
                     <!-- <td style="color:#000000;">Strategist (Ahli strategi) </td> -->
-                    <td style="color:#000000;" >Kedalaman Analisa dan Keilmuan (2,5%)</td>
+                    <td style="color:#000000;" ><b>Kedalaman Analisa dan Keilmuan (2,5%)</b></td>
                     <td style="color:#000000;" class="text-justify">Mampu menjelaskan teori-teori yang menjadi dasar dalam analisa, termasuk best practice yang sudah dilaksanakan di perusahaan/unit lain. <br>Mampu menemukan akar permasaahan/key success factor yang memiliki peran signifikan dalam perbaikan proses bisnis. <br>Mampu menyusun argumentasi yang kuat untuk menghubungkan antara teori yang digunakan dengan kerangka berpikir peserta. Proses analisa sudah dilakukan secara komperhensif dengan perangkat analisa yang sesuai.</td>
                     <td style="color:#000000;"><div class="form-group">
                     <input type="text"  class="form-control" id="skategori2" name="skategori2" >
@@ -128,7 +128,7 @@
                   <tr>
                   <td style="color:#000000;" rowspan="2" >Perencanaan dan Eksekusi /td>
                     <td style="color:#000000;">3.</td>
-                    <td style="color:#000000;" >Perencanaan Eksekusi Program Terobosan/Breakthrough (10%)</td>
+                    <td style="color:#000000;" ><b>Perencanaan Eksekusi Program Terobosan/Breakthrough (10%)</b></td>
                     
                     <td style="color:#000000;" class="text-justify">Peserta dapat menggunakan perencanaankerja dalam menginisiasi dan mengeksekusi Program yang telah dibuat. <br>Peserta dapat menyusun workplan sesuai target yang dituju.</td>
                     <td style="color:#000000;"><div class="form-group">
@@ -139,7 +139,7 @@
                   <tr>
                     <td style="color:#000000;">4.</td>
                     <!-- <td style="color:#000000;">Strategist (Ahli strategi) </td> -->
-                    <td style="color:#000000;" >Eksekusi dan Monitoring Program Terobosan/Breakthrough (10%)</td>
+                    <td style="color:#000000;" ><b>Eksekusi dan Monitoring Program Terobosan/Breakthrough (10%)</b></td>
                     <td style="color:#000000;" class="text-justify">Peserta dapat memastikan tahapan eksekusi program berjalan sesuai workplan, target dan proses yang telah ditetapkan.</td>
                     <td style="color:#000000;"><div class="form-group">
                     <input type="text"  class="form-control" id="skategori4" name="skategori4">
@@ -149,7 +149,7 @@
                   <tr>
                   <td style="color:#000000;" rowspan="2" >Team Work </td>
                     <td style="color:#000000;">5.</td>
-                    <td style="color:#000000;" >Komunikasi Pelaksanaan Program (10%)</td>
+                    <td style="color:#000000;" ><b>Komunikasi Pelaksanaan Program (10%)</b></td>
                     
                     <td style="color:#000000;" class="text-justify">Menunjukkan kemampuan berkomunikasi yang efektif kepada seluruh anggota tim maupun stakeholder yang terkait dengan program. Mulai dariinisiasi, pelaksanaan hingga membina hubungan baik. <br>Mencari dan memastikan ketersediaan sumber daya untuk mendukung keberhasilan program.</td>
                     <td style="color:#000000;"><div class="form-group">
@@ -160,7 +160,7 @@
                   <tr>
                     <td style="color:#000000;">6.</td>
                     <!-- <td style="color:#000000;">Strategist (Ahli strategi) </td> -->
-                    <td style="color:#000000;" >Kerja sama tim (10%)</td>
+                    <td style="color:#000000;" ><b>Kerja sama tim (10%)</b></td>
                     <td style="color:#000000;" class="text-justify">Mengambil tindakan yang dapat menyelaraskan kepentingan anggota tim dengan pencapaian tujuan program. <br>Memotivasi anggota timnya untuk dapat menjalankan peran dalam Program Terobosan/Breakthrough.</td>
                     <td style="color:#000000;"><div class="form-group">
                     <input type="text"  class="form-control" id="skategori6" name="skategori6">
@@ -170,7 +170,7 @@
                   <tr>
                   <td style="color:#000000;" >Human Capital Developer (Pengembangan Sumber Daya Manusia)</td>
                     <td style="color:#000000;">7.</td>
-                    <td style="color:#000000;" >Pengembangan Kompetensi (5%)</td>
+                    <td style="color:#000000;" ><b>Pengembangan Kompetensi (5%)</b></td>
                     
                     <td style="color:#000000;" class="text-justify">Memastikan bahwa Peserta menjalankan peran sebagaimana sebutan jabatan pertama.</td>
                     <td style="color:#000000;"><div class="form-group">
@@ -181,7 +181,7 @@
                   <tr>
                   <td style="color:#000000;" rowspan="2" >Personal Proficiency (Panutan Peningkatan Diri)</td>
                     <td style="color:#000000;">8.</td>
-                    <td style="color:#000000;" >Kesesuaian Mistar Kompetensi (10%)</td>
+                    <td style="color:#000000;" ><b>Kesesuaian Mistar Kompetensi (10%)</b></td>
                    
                     <td style="color:#000000;" class="text-justify">Mampu melakukan analisa sesuai dengan mistar kompetensi jabatan proyeksi.</td>
                     <td style="color:#000000;"><div class="form-group">
@@ -192,7 +192,7 @@
                   <tr>
                     <td style="color:#000000;">9.</td>
                     <!-- <td style="color:#000000;">Strategist (Ahli strategi) </td> -->
-                    <td style="color:#000000;" >Potansi Dampak Program (10%)</td>
+                    <td style="color:#000000;" ><b>Potansi Dampak Program (10%)</b></td>
                     <td style="color:#000000;" class="text-justify">Mampu menunjukan Potensi Dampak atas program yang dilaksanakan.</td>
                     <td style="color:#000000;"><div class="form-group">
                     <input type="text"  class="form-control" id="skategori9" name="skategori9">
@@ -202,7 +202,7 @@
                   <tr>
                   <td style="color:#000000;" rowspan="3" >Future Competency</td>
                     <td style="color:#000000;">10.</td>
-                    <td style="color:#000000;" >Finance (5%)</td>
+                    <td style="color:#000000;" ><b>Finance (5%)</b></td>
                    
                     <td style="color:#000000;" class="text-justify">Peserta melakukan tracking biaya dan efisiensi biaya program</td>
                     <td style="color:#000000;"><div class="form-group">
@@ -213,7 +213,7 @@
                   <tr>
                     <td style="color:#000000;">11.</td>
                     <!-- <td style="color:#000000;">Strategist (Ahli strategi) </td> -->
-                    <td style="color:#000000;" >Global Competency (10%)</td>
+                    <td style="color:#000000;" ><b>Global Competency (10%)</b></td>
                     <td style="color:#000000;" >Peserta menggunakan Best Practice yang ada dan menggunakan untuk menyelesaikan.</td>
                     <td style="color:#000000;"><div class="form-group">
                     <input type="text"  class="form-control" id="skategori11" name="skategori11">
@@ -223,7 +223,7 @@
                   <tr>
                     <td style="color:#000000;">12.</td>
                     <!-- <td style="color:#000000;">Strategist (Ahli strategi) </td> -->
-                    <td style="color:#000000;" >Digital Competency (15%)</td>
+                    <td style="color:#000000;" ><b>Digital Competency (15%)</b></td>
                     <td style="color:#000000;" >Peserta menggunakanbig data dan melakukan digitalisasi proses manual pada project yang dilakukan.</td>
                     <td style="color:#000000;"><div class="form-group">
                     <input type="text"  class="form-control" id="skategori12" name="skategori12">

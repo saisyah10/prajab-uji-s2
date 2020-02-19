@@ -38,7 +38,7 @@
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
                     <div class="form-group">
-                        <label for="alamat">Password Confirmation:</label>
+                        <label for="alamat">Konfirmasi Password:</label>
                         <input type="password" class="form-control" id="confirmation" name="confirmation">
                     </div>
                 
