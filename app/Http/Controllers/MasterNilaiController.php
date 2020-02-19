@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Masternilai;
 use App\Siswa;
+use App\Penguji;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
@@ -120,9 +121,18 @@ class MasterNilaiController extends Controller
      */
     public function show($id)
     {
-        $datad = Masternilai::where('id_siswa',$id)->get();
+        $datad = Masternilai::with(['penguji','siswa'])->where('id_siswa',$id)->get();
+
+        $dataq = DB::table('masternilai')
+            ->join('siswa', 'masternilai.id_siswa', '=', 'siswa.id')
+            ->join('penguji', 'masternilai.id_penguji', '=', 'penguji.id')
+            ->select('masternilai.*', 'siswa.nama as s_nama', 'penguji.nama as p_nama')->where('id_siswa',$id)
+            ->get();
+
         $datas = Siswa::where('id',$id)->first();
         $semuanilai = 0;
+        $id_siswa = "";
+        $id_penguji = "";
         foreach( $datad as $datadetail)
         {
             $nilai_1 = $datadetail->nilai_subkat_1 * 2.5/100;
@@ -139,6 +149,7 @@ class MasterNilaiController extends Controller
             $nilai_12 = $datadetail->nilai_subkat_12 * 15/100;
 
             $total_nilai = $nilai_1+$nilai_2+$nilai_3+$nilai_4+$nilai_5+$nilai_6+$nilai_7+$nilai_8+$nilai_9+$nilai_10+$nilai_11+$nilai_12;
+            
             $datadetail->total_subkat_1 = $nilai_1;
             $datadetail->total_subkat_2 = $nilai_2;
             $datadetail->total_subkat_3 = $nilai_3;
@@ -153,7 +164,27 @@ class MasterNilaiController extends Controller
             $datadetail->total_subkat_12 = $nilai_12;
             $datadetail->total_nilai_subkat = $total_nilai;
             $datadetail->save();
+
+            // DB::table('masternilai')
+            // ->where('id_siswa',$id)
+            // ->update(['total_subkat_1' => $nilai_1,
+            // 'total_subkat_2' => $nilai_2,
+            // 'total_subkat_3' => $nilai_3,
+            // 'total_subkat_4' => $nilai_4,
+            // 'total_subkat_5' => $nilai_5,
+            // 'total_subkat_6' => $nilai_6,
+            // 'total_subkat_7' => $nilai_7,
+            // 'total_subkat_8' => $nilai_8,
+            // 'total_subkat_9' => $nilai_9,
+            // 'total_subkat_10' => $nilai_10,
+            // 'total_subkat_11' => $nilai_11,
+            // 'total_subkat_12' => $nilai_12,
+            // 'total_nilai_subkat' => $total_nilai
+            // ]);
+
             $semuanilai += $total_nilai/3;     
+
+            
         }
         
         if($semuanilai >= 70 ){
@@ -174,7 +205,7 @@ class MasterNilaiController extends Controller
         $datas->save();
         
 
-        return view('superadmin/detailreport',compact('datad'));
+        return view('superadmin/detailreport',compact('datad','dataq'));
     }
 
     /**
