@@ -60,12 +60,11 @@
                   </thead>
                   <tbody>
                   @php $no = 1; $semuanilai=0; $id=0; @endphp
-                @foreach($datad as $datas)
+                @foreach($dataq as $datas)
                     <tr>
                         <td>{{$no++ }}</td>
-                        <td>@php $id = $datas->id_siswa; 
-                            echo($id); @endphp</td>
-                        <td>{{$datas->id_penguji}}</td>
+                        <td>{{$datas->s_nama}}</td>
+                        <td>{{$datas->p_nama}}</td>
                         <td>{{$datas->status_penguji}}</td>
                         <td>{{$datas->total_subkat_1}} </td>
                         <td>{{$datas->total_subkat_2}} </td>
