@@ -34,7 +34,7 @@
 
     <!-- Sidebar -->
 
-    @if(Session::get('login')=='TRUE')
+    @if(Session::get('status_admin')=='login')
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     

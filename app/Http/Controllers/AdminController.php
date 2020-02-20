@@ -17,7 +17,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        if(!Session::get('login')){
+        if(!Session::get('status_admin')){
             return redirect('/superadmin/login')->with('alert','Kamu harus login dulu');
         }
         else{
@@ -41,7 +41,7 @@ class AdminController extends Controller
                 Session::put('nama',$data->nama);
                 Session::put('email',$data->email);
                 Session::put('id_admin',$data->id);
-                Session::put('login',TRUE);
+                Session::put('status_admin',"login");
 
                 return redirect('/');
             }
@@ -50,7 +50,7 @@ class AdminController extends Controller
             }
         }
         else{
-            return redirect('/superadmin/login')->with('alert','Password atau Email, Salah!');
+            return redirect('/superadmin/login')->with('alert','data tidak ada');
         }
     }
 

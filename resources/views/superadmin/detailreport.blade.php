@@ -78,7 +78,7 @@
                         <td>{{$datas->total_subkat_10}} </td>
                         <td>{{$datas->total_subkat_11}} </td>
                         <td>{{$datas->total_subkat_12}} </td>
-                        <td>{{$datas->total_nilai_subkat}}</td>
+                        <td>{{number_format($datas->total_nilai_subkat,3)}}</td>
                     </tr>
                       @php $semuanilai += $datas->total_nilai_subkat/3;
                          
@@ -90,7 +90,7 @@
                       </th>
                       <td colspan="14">
                       @php 
-                          echo($semuanilai);
+                          echo(number_format($semuanilai,3));
                        @endphp
                        </td>
                     </tr>                    

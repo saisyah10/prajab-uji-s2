@@ -53,7 +53,7 @@
                     <td>{{ $no++ }}</td>
                         <td>{{$datas->notest}}</td>
                         <td>{{$datas->nama}}</td>
-                        <td>{{$datas->nilai}}</td>
+                        <td>{{number_format($datas->nilai,3)}}</td>
                         <td>{{$datas->status}}</td>
                         <td class="action"><a href="/superadmin/detailreport/{{$datas->id}}" class=" btn btn-sm btn-primary">Detail</a></td>
                     </tr>

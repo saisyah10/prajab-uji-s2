@@ -34,6 +34,11 @@ class MasterNilaiController extends Controller
     public function printprvdtl($id)
     {
         $datad = Masternilai::where('id_siswa',$id)->get();
+        $dataq = DB::table('masternilai')
+            ->join('siswa', 'masternilai.id_siswa', '=', 'siswa.id')
+            ->join('penguji', 'masternilai.id_penguji', '=', 'penguji.id')
+            ->select('masternilai.*', 'siswa.nama as s_nama', 'penguji.nama as p_nama')->where('id_siswa',$id)
+            ->get();
 
         $semuanilai = 0;
         foreach( $datad as $datadetail)
@@ -55,7 +60,7 @@ class MasterNilaiController extends Controller
                  
         }
 
-        return view('superadmin/printdetail',compact('datad'));
+        return view('superadmin/printdetail',compact('datad','dataq'));
     }
 
     /**
@@ -96,7 +101,7 @@ class MasterNilaiController extends Controller
         $data =  new Masternilai();
         $data->id_siswa = $request->id_siswa;
         $data->id_penguji = $request->id_penguji;
-        $data->status_penguji = $request->status;
+        $data->kelas_penguji = $request->status;
         $data->nilai_subkat_1 = $request->skategori1;
         $data->nilai_subkat_2 = $request->skategori2;
         $data->nilai_subkat_3 = $request->skategori3;
@@ -110,6 +115,64 @@ class MasterNilaiController extends Controller
         $data->nilai_subkat_11 = $request->skategori11;
         $data->nilai_subkat_12 = $request->skategori12;
         $data->save();
+
+        $datad = Masternilai::where('id_siswa',$request->id_siswa)->get();
+        
+        $datas = Siswa::where('id',$id)->first();
+        $semuanilai = 0;
+
+        foreach( $datad as $datadetail)
+        {
+            $nilai_1 = $datadetail->nilai_subkat_1 * 2.5/100;
+            $nilai_2 = $datadetail->nilai_subkat_2 * 2.5/100;
+            $nilai_3 = $datadetail->nilai_subkat_3 * 10/100;
+            $nilai_4 = $datadetail->nilai_subkat_4 * 10/100;
+            $nilai_5 = $datadetail->nilai_subkat_5 * 10/100;
+            $nilai_6 = $datadetail->nilai_subkat_6 * 10/100;
+            $nilai_7 = $datadetail->nilai_subkat_7 * 5/100;
+            $nilai_8 = $datadetail->nilai_subkat_8 * 10/100;
+            $nilai_9 = $datadetail->nilai_subkat_9 * 10/100;
+            $nilai_10 = $datadetail->nilai_subkat_10 * 5/100;
+            $nilai_11 = $datadetail->nilai_subkat_11 * 10/100;
+            $nilai_12 = $datadetail->nilai_subkat_12 * 15/100;
+
+            $total_nilai = $nilai_1+$nilai_2+$nilai_3+$nilai_4+$nilai_5+$nilai_6+$nilai_7+$nilai_8+$nilai_9+$nilai_10+$nilai_11+$nilai_12;
+            
+            $datadetail->total_subkat_1 = $nilai_1;
+            $datadetail->total_subkat_2 = $nilai_2;
+            $datadetail->total_subkat_3 = $nilai_3;
+            $datadetail->total_subkat_4 = $nilai_4;
+            $datadetail->total_subkat_5 = $nilai_5;
+            $datadetail->total_subkat_6 = $nilai_6;
+            $datadetail->total_subkat_7 = $nilai_7;
+            $datadetail->total_subkat_8 = $nilai_8;
+            $datadetail->total_subkat_9 = $nilai_9;
+            $datadetail->total_subkat_10 = $nilai_10;
+            $datadetail->total_subkat_11 = $nilai_11;
+            $datadetail->total_subkat_12 = $nilai_12;
+            $datadetail->total_nilai_subkat = $total_nilai;
+            $datadetail->save();
+
+            $semuanilai += $total_nilai/3;
+        }
+        
+        if($semuanilai >= 70 ){
+            $datas->nilai = $semuanilai;
+            $datas->status = "LULUS";
+            
+        }
+        elseif($semuanilai < 70){
+            $datas->nilai = $semuanilai;
+            $datas->status = "TIDAK LULUS";
+            
+        }
+        else {
+            $datas->nilai = $semuanilai;
+            $datas->status = "TIDAK ADA DATA";
+            
+        }
+        $datas->save();
+        
             return redirect('/user')->with(['success' => 'Berhasil Menginput Nilai Mentee']);
     }
 
@@ -126,7 +189,7 @@ class MasterNilaiController extends Controller
         $dataq = DB::table('masternilai')
             ->join('siswa', 'masternilai.id_siswa', '=', 'siswa.id')
             ->join('penguji', 'masternilai.id_penguji', '=', 'penguji.id')
-            ->select('masternilai.*', 'siswa.nama as s_nama', 'penguji.nama as p_nama')->where('penguji',$id)
+            ->select('masternilai.*', 'siswa.nama as s_nama', 'penguji.nama as p_nama')->where('id_siswa',$id)
             ->get();
 
         $datas = Siswa::where('id',$id)->first();
@@ -244,22 +307,95 @@ class MasterNilaiController extends Controller
 
         return view('user/formlihathasil',compact('dataHasil','dataq'));
     }
-
-    public function hasilshow()
+    
+    public function updatehasil(Request $request,$id)
     {
-        return view('user/formlihathasil');
+       $data = Masternilai::where('id',$id)->first();
+       
+
+        $data->nilai_subkat_1 = $request->skategori1;
+        $data->nilai_subkat_2 = $request->skategori2;
+        $data->nilai_subkat_3 = $request->skategori3;
+        $data->nilai_subkat_4 = $request->skategori4;
+        $data->nilai_subkat_5 = $request->skategori5;
+        $data->nilai_subkat_6 = $request->skategori6;
+        $data->nilai_subkat_7 = $request->skategori7;
+        $data->nilai_subkat_8 = $request->skategori8;
+        $data->nilai_subkat_9 = $request->skategori9;
+        $data->nilai_subkat_10 = $request->skategori10;
+        $data->nilai_subkat_11 = $request->skategori11;
+        $data->nilai_subkat_12 = $request->skategori12;
+
+            $nilai_1 = $request->skategori1 * 2.5/100;
+            $nilai_2 = $request->skategori2 * 2.5/100;
+            $nilai_3 = $request->skategori3 * 10/100;
+            $nilai_4 = $request->skategori4 * 10/100;
+            $nilai_5 = $request->skategori5 * 10/100;
+            $nilai_6 = $request->skategori6 * 10/100;
+            $nilai_7 = $request->skategori7 * 5/100;
+            $nilai_8 = $request->skategori8 * 10/100;
+            $nilai_9 = $request->skategori9 * 10/100;
+            $nilai_10 = $request->skategori10 * 5/100;
+            $nilai_11 = $request->skategori11 * 10/100;
+            $nilai_12 = $request->skategori12 * 15/100;
+
+            $total_nilai = $nilai_1+$nilai_2+$nilai_3+$nilai_4+$nilai_5+$nilai_6+$nilai_7+$nilai_8+$nilai_9+$nilai_10+$nilai_11+$nilai_12;
+            
+            $data->total_subkat_1 = $nilai_1;
+            $data->total_subkat_2 = $nilai_2;
+            $data->total_subkat_3 = $nilai_3;
+            $data->total_subkat_4 = $nilai_4;
+            $data->total_subkat_5 = $nilai_5;
+            $data->total_subkat_6 = $nilai_6;
+            $data->total_subkat_7 = $nilai_7;
+            $data->total_subkat_8 = $nilai_8;
+            $data->total_subkat_9 = $nilai_9;
+            $data->total_subkat_10 = $nilai_10;
+            $data->total_subkat_11 = $nilai_11;
+            $data->total_subkat_12 = $nilai_12;
+            $data->total_nilai_subkat = $total_nilai;
+            $data->save();
+        
+        $data->save($request->all());
+
+        // DB::table('masternilai')
+        //     ->where('id', $request->id_nilai)
+        //     ->update(['nilai_subkat_1' => $request->skategori1,
+        //     'nilai_subkat_2' => $request->skategori2,
+        //     'nilai_subkat_3' => $request->skategori3,
+        //     'nilai_subkat_4' => $request->skategori4,            
+        //     'nilai_subkat_5' => $request->skategori5,
+        //     'nilai_subkat_6' => $request->skategori6,
+        //     'nilai_subkat_7' => $request->skategori7,
+        //     'nilai_subkat_8' => $request->skategori8,
+        //     'nilai_subkat_9' => $request->skategori9,
+        //     'nilai_subkat_10' => $request->skategori10,
+        //     'nilai_subkat_11' => $request->skategori11,
+        //     'nilai_subkat_12' => $request->skategori12
+        //     ]);
+
+        return redirect()->action(
+            'MasterNilaiController@showhasil', ['id' => $request->id_penguji]
+        )->with('alert-success','Update Berhasil');
+
+        // return redirect()->route('/user/lihathasil/', ['id' => $request->id_penguji])->with('alert-success','Update Berhasil');
     }
 
-    
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edithasil($id)
     {
-        //
+        $datanilai= DB::table('masternilai')
+        ->join('siswa', 'masternilai.id_siswa', '=', 'siswa.id')
+        ->join('penguji', 'masternilai.id_penguji', '=', 'penguji.id')
+        ->select('masternilai.*', 'siswa.nama as s_nama','siswa.notest as s_notest' ,'penguji.nama as p_nama')->where('masternilai.id',$id)
+        ->get();
+
+        return view('/user/editnilai',compact('datanilai'));
     }
 
     /**

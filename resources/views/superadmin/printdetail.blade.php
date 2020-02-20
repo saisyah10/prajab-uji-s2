@@ -28,6 +28,10 @@
   <script>
 		window.print();
 	</script>
+  <style type="text/css" media="print">
+  @page { size: landscape; }
+</style>
+
 </head>
 
 <body id="page-top">
@@ -58,13 +62,13 @@
                         </div>
                         <div class="card-body">
                         <div class="table-responsive">
-                <table class="table table-bordered"  width="100%" cellspacing="0">
+                <table class="table table-bordered"  width="20%" cellspacing="0">
                   <thead>
                     <tr>
                     <th>No</th>
-                    <th>Id Siswa</th>
-                    <th>Id Penguji</th>
-                    <th>Keterangan Penguji</th>
+                    <th>Nama Siswa</th>
+                    <th>Nama Penguji</th>
+                    <th>Kelas Penguji</th>
                     <th>Nilai Sub Kategori 1 Bobot 2,5%</th>
                     <th>Nilai Sub Kategori 2 Bobot 2,5%</th>
                     <th>Nilai Sub Kategori 3 Bobot 10%</th>
@@ -82,13 +86,12 @@
                   </thead>
                   <tbody>
                   @php $no = 1; $semuanilai=0; $id=0; @endphp
-                @foreach($datad as $datas)
+                @foreach($dataq as $datas)
                     <tr>
                         <td>{{$no++ }}</td>
-                        <td>@php $id = $datas->id_siswa; 
-                            echo($id); @endphp</td>
-                        <td>{{$datas->id_penguji}}</td>
-                        <td>{{$datas->status_penguji}}</td>
+                        <td>{{$datas->s_nama}}</td>
+                        <td>{{$datas->p_nama}}</td>
+                        <td>{{$datas->kelas_penguji}}</td>
                         <td>{{$datas->total_subkat_1}} </td>
                         <td>{{$datas->total_subkat_2}} </td>
                         <td>{{$datas->total_subkat_3}} </td>

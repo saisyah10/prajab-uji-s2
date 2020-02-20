@@ -49,7 +49,6 @@ class PengujiController extends Controller
             if(($data->password) == ($password) ){
                 Session::put('nama_penguji',$data->nama);
                 Session::put('id_penguji',$data->id);
-                Session::put('login',TRUE);
                 Session::put('status','login');
                 return redirect('/user');
             }

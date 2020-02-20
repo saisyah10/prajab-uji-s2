@@ -9,48 +9,43 @@
 <section class="main-section">
         <!-- Add Your Content Inside -->
         <div class="content">
-        <form action="{{ url('/user/StoreNilai') }}" method="POST">
+        @foreach($datanilai as $datas)
+        <form action="/user/updatehasilpost/{{$datas->id}}" method="POST">
+        
               {{ csrf_field() }}
+              
             <!-- Remove This Before You Start -->
             <div class="form-group">
           <br>
           
-            <h3 class="m-0 font-weight-bold " ><center>Selamat Datang di Halaman Penilaian Uji Akhir Pembelajaran Prajabatan s2</center></h3>  
-            <a href="/user/lihathasil/{{Session::get('id_penguji')}}" class="btn btn-md btn-primary">LIHAT HASIL</a>
+            <h3 class="m-0 font-weight-bold " ><center>Edit Nilai Siswa</center></h3>
             <br>
             <div class="row">
             <div class="col-md-6">            
             <div class="form-group">
               
                 <label for="nama">Penguji : </label>
-                <input type="text"  class="form-control" id="nama" name="nama" value="{{Session::get('nama_penguji')}}" disabled>
-
+                <input type="text"  class="form-control" id="nama" value="{{Session::get('nama_penguji')}}" disabled>
+                
                 <label for="status">Kelas : </label>
                 <!-- <input type="text"  class="form-control" id="status" name="status" value="{{Session::get('status')}}" disabled> -->
-                <select name="status" id="status" class="custom-select" style="width:700px;">
-                <option value="A">A</option>
-                <option value="B">B</option>
-                </select>
+                <input id="status" class="custom-select" style="width:700px;" value="{{$datas->kelas_penguji}}" disabled>
             </div>
             </div>
             <div class="col-md-6">  
               <div class="form-group">
               
               <label for="namasiswa">Nama Siswa : </label>
-                  <select name="namasiswa" id="namasiswa" class="custom-select" style="width:700px;">
-                  @foreach($data_siswa as $datas)
-                  <option value="{{$datas->id}}" data-note="{{$datas->notest}}">{{$datas->nama}}</option>
-                  @endforeach 
-                  </select>
-                  <!-- <input type="text"  class="form-control" id="namasiswa" name="namasiswa" value="" disabled>   -->
-
+                  <!-- <select name="namasiswa" id="namasiswa" class="custom-select" style="width:700px;" disabled>
+                  
+                  </select> -->
+                  <input type="text"  class="form-control" id="namasiswa" name="namasiswa" value="{{$datas->s_nama}}" disabled>  
               <label for="notest_siswa">No Test Siswa : </label>
                    <!-- <select name="notest_siswa" id="notest_siswa" class="custom-select mb-2 mr-sm-2 mb-sm-2"style="width:700px;">
                    
                 </select>  -->
-                  <input type="text"  class="form-control" id="no_test" name="no_test" value="" disabled>
-
-                  <script type="text/javascript">
+                  <input type="text"  class="form-control" id="no_test" name="no_test" value="{{$datas->s_notest}}" disabled>
+                  <!-- <script type="text/javascript">
                       $("#namasiswa").change(function(){
                       var idValue = $(this).val();
                       var noTest = $('#namasiswa option:selected').data("note");
@@ -69,7 +64,7 @@
                       $('#skategori11').val("");
                       $('#skategori12').val("");
                   });
-                  </script>
+                  </script> -->
                   
               
               </div>
@@ -80,7 +75,7 @@
             <div class="card-header py-3">
             <div class="row">
             <div class="col-md-6"
-              <h6 class="m-0 font-weight-bold " style="color:#000000;">Form Penilaian Uji Akhir Pembelajaran Prajabatan s2</h6>
+              <h6 class="m-0 font-weight-bold " style="color:#000000;">Edit Nilai Akhir Siswa Uji Bisnis Improvment Prajabatan Tingkat S2 PLN Group</h6>
             </div>
             <div class="col-md-6">
               <h6 class="m-0 font-weight-bold " style="color:#000000;" align="right">Max Nilai 100</h6>
@@ -103,7 +98,9 @@
               </div>
             @endif
                 <div class="form-group">
-                  <input type="text" id="id_siswa" class="form-control" name="id_siswa" value="" hidden="true" > 
+                  <input type="text" id="id_siswa" class="form-control" name="id_siswa" value="{{$datas->id_siswa}}" hidden="true" > 
+                  <input type="text" id="id_nilai" class="form-control" name="id_nilai" value="{{$datas->id}}" hidden="true" >
+                  
               </div>
               <div class="form-group">
                 <input type="text"  class="form-control" id="id_penguji" name="id_penguji" value="{{Session::get('id_penguji')}}" hidden="true" > 
@@ -126,13 +123,14 @@
                 <tbody>
                 
                   <tr>
+                  
                   <td style="color:#000000;" rowspan="2" >Strategist (Ahli strategi) </td>
                     <td style="color:#000000;">1.</td>
                     <td style="color:#000000;" > <b>Issue Strategis (2,5%)</b></td>
                     
                     <td style="color:#000000;" class="text-justify">Mampu menjelaskan latar belakang permasalahan yang diangkat dari sudut pandang yang lebih luas (kenegaraan/korporasi) menjadi permasalahan yang lebih spesifik (unit/organisasi). <br>Mampu mengembangkan paradigma untuk melihat detail permasalahan tanpa kehulangan sudut pandang strategis.</td>
                     <td style="color:#000000;">
-                    <input type="text" class="form-control" style="background-color:#D3D3D3" id="skategori1" name="skategori1" Minlength="2" Maxlength="3" >
+                    <input type="text" class="form-control" style="background-color:#D3D3D3" id="skategori1" name="skategori1" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_1}}">
                   </td>
                   </tr>
                   <tr>
@@ -141,7 +139,7 @@
                     <td style="color:#000000;" ><b>Kedalaman Analisa dan Keilmuan (2,5%)</b></td>
                     <td style="color:#000000;" class="text-justify">Mampu menjelaskan teori-teori yang menjadi dasar dalam analisa, termasuk best practice yang sudah dilaksanakan di perusahaan/unit lain. <br>Mampu menemukan akar permasaahan/key success factor yang memiliki peran signifikan dalam perbaikan proses bisnis. <br>Mampu menyusun argumentasi yang kuat untuk menghubungkan antara teori yang digunakan dengan kerangka berpikir peserta. Proses analisa sudah dilakukan secara komperhensif dengan perangkat analisa yang sesuai.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori2" style="background-color:#D3D3D3" name="skategori2" Minlength="2" Maxlength="3">
+                    <input type="text"  class="form-control" id="skategori2" style="background-color:#D3D3D3" name="skategori2" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_2}}">
                     </div>
                     </td>
                   </tr>
@@ -152,7 +150,7 @@
                     
                     <td style="color:#000000;" class="text-justify">Peserta dapat menggunakan perencanaankerja dalam menginisiasi dan mengeksekusi Program yang telah dibuat. <br>Peserta dapat menyusun workplan sesuai target yang dituju.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori3" style="background-color:#D3D3D3" name="skategori3" Minlength="2" Maxlength="3">
+                    <input type="text"  class="form-control" id="skategori3" style="background-color:#D3D3D3" name="skategori3" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_3}}">
                     </div>
                     </td>
                   </tr>
@@ -162,7 +160,7 @@
                     <td style="color:#000000;" ><b>Eksekusi dan Monitoring Program Terobosan/Breakthrough (10%)</b></td>
                     <td style="color:#000000;" class="text-justify">Peserta dapat memastikan tahapan eksekusi program berjalan sesuai workplan, target dan proses yang telah ditetapkan.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori4" style="background-color:#D3D3D3" name="skategori4" Minlength="2" Maxlength="3">
+                    <input type="text"  class="form-control" id="skategori4" style="background-color:#D3D3D3" name="skategori4" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_4}}">
                     </div>
                     </td>
                   </tr>
@@ -173,7 +171,7 @@
                     
                     <td style="color:#000000;" class="text-justify">Menunjukkan kemampuan berkomunikasi yang efektif kepada seluruh anggota tim maupun stakeholder yang terkait dengan program. Mulai dariinisiasi, pelaksanaan hingga membina hubungan baik. <br>Mencari dan memastikan ketersediaan sumber daya untuk mendukung keberhasilan program.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori5" style="background-color:#D3D3D3" name="skategori5" Minlength="2" Maxlength="3">
+                    <input type="text"  class="form-control" id="skategori5" style="background-color:#D3D3D3" name="skategori5" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_5}}">
                     </div>
                     </td>
                   </tr>
@@ -183,7 +181,7 @@
                     <td style="color:#000000;" ><b>Kerja sama tim (10%)</b></td>
                     <td style="color:#000000;" class="text-justify">Mengambil tindakan yang dapat menyelaraskan kepentingan anggota tim dengan pencapaian tujuan program. <br>Memotivasi anggota timnya untuk dapat menjalankan peran dalam Program Terobosan/Breakthrough.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori6" style="background-color:#D3D3D3" name="skategori6" Minlength="2" Maxlength="3">
+                    <input type="text"  class="form-control" id="skategori6" style="background-color:#D3D3D3" name="skategori6" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_6}}">
                     </div>
                     </td>
                   </tr>
@@ -194,7 +192,7 @@
                     
                     <td style="color:#000000;" class="text-justify">Memastikan bahwa Peserta menjalankan peran sebagaimana sebutan jabatan pertama.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori7" style="background-color:#D3D3D3" name="skategori7" Minlength="2" Maxlength="3">
+                    <input type="text"  class="form-control" id="skategori7" style="background-color:#D3D3D3" name="skategori7" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_7}}">
                     </div>
                     </td>
                   </tr>
@@ -205,7 +203,7 @@
                    
                     <td style="color:#000000;" class="text-justify">Mampu melakukan analisa sesuai dengan mistar kompetensi jabatan proyeksi.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori8" style="background-color:#D3D3D3" name="skategori8" Minlength="2" Maxlength="3">
+                    <input type="text"  class="form-control" id="skategori8" style="background-color:#D3D3D3" name="skategori8" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_8}}">
                     </div>
                     </td>
                   </tr>
@@ -215,7 +213,7 @@
                     <td style="color:#000000;" ><b>Potansi Dampak Program (10%)</b></td>
                     <td style="color:#000000;" class="text-justify">Mampu menunjukan Potensi Dampak atas program yang dilaksanakan.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori9" style="background-color:#D3D3D3" name="skategori9" Minlength="2" Maxlength="3">
+                    <input type="text"  class="form-control" id="skategori9" style="background-color:#D3D3D3" name="skategori9" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_9}}">
                     </div>
                     </td>
                   </tr>
@@ -226,7 +224,7 @@
                    
                     <td style="color:#000000;" class="text-justify">Peserta melakukan tracking biaya dan efisiensi biaya program</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori10" style="background-color:#D3D3D3" name="skategori10" Minlength="2" Maxlength="3">
+                    <input type="text"  class="form-control" id="skategori10" style="background-color:#D3D3D3" name="skategori10" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_10}}">
                     </div>
                     </td>
                   </tr>
@@ -236,7 +234,7 @@
                     <td style="color:#000000;" ><b>Global Competency (10%)</b></td>
                     <td style="color:#000000;" >Peserta menggunakan Best Practice yang ada dan menggunakan untuk menyelesaikan.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori11" style="background-color:#D3D3D3" name="skategori11" Minlength="2" Maxlength="3">
+                    <input type="text"  class="form-control" id="skategori11" style="background-color:#D3D3D3" name="skategori11" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_11}}">
                     </div>
                     </td>
                   </tr>
@@ -246,9 +244,10 @@
                     <td style="color:#000000;" ><b>Digital Competency (15%)</b></td>
                     <td style="color:#000000;" >Peserta menggunakanbig data dan melakukan digitalisasi proses manual pada project yang dilakukan.</td>
                     <td style="color:#000000;"><div class="form-group">
-                    <input type="text"  class="form-control" id="skategori12" style="background-color:#D3D3D3" name="skategori12" Minlength="2" Maxlength="3">
+                    <input type="text"  class="form-control" id="skategori12" style="background-color:#D3D3D3" name="skategori12" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_12}}">
                     </div>
                     </td>
+                    
                   </tr>
                 </tbody>
                 
@@ -261,12 +260,13 @@
           <div class="form-group">
                 <center><button type="submit" class="btn btn-md btn-primary">SUBMIT NILAI</button>
                 </br></br>
-                    <a href="/user/logout" class="btn btn-md btn-primary">LOGOUT</a>
+                    <a href="/user/lihathasil/{{$datas->id_penguji}}" class="btn btn-md btn-primary">KEMBALI</a>
                 </center>
             </div>
         </div>
 </div>
 </form>
+@endforeach
 </div>
         <!-- /.content -->
 </section>

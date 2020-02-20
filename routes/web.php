@@ -81,3 +81,5 @@ Route::get('/user/dropdown/{id}','PengujiController@siswaDropdown');
 Route::get('/user/lihathasil/{id}','MasterNilaiController@showhasil');
 
 Route::get('/user/edithasil/{id}','MasterNilaiController@edithasil');
+
+Route::post('/user/updatehasilpost/{id}','MasterNilaiController@updatehasil');
