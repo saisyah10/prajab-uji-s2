@@ -63,7 +63,7 @@
                         <!-- <a href="#" class="btn btn-sm btn-primary" id="btnprint" style="right:10px;">Print</a> -->
                         </div>
                         
-                          <table class="table table-bordered table-sm"  width="20%" cellspacing="0">
+                          <table class="table table-bordered table-sm"  width="100%" cellspacing="0">
                             <thead>
                               <tr>
                               <th>No</th>
