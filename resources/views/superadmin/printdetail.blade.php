@@ -28,9 +28,10 @@
   <script>
 		window.print();
 	</script>
+  
   <style type="text/css" media="print">
-  @page { size: landscape; }
-</style>
+    @page { size: landscape; }
+  </style>
 
 </head>
 
@@ -46,23 +47,24 @@
             <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Detail Nilai Mentee</h1>
+                    <!-- <h1 class="h3 mb-2 text-gray-800">Detail Nilai Mentee</h1> -->
                     @if(Session::has('alert-success'))
                             <div class="alert alert-success">
                                 <strong>{{ \Illuminate\Support\Facades\Session::get('alert-success') }}</strong>
                             </div>
                         @endif
-                        <hr>
+                        <br>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Laporan Detail Nilai Akhir Mentee</h6>
+                        <center><h6 class="m-0 font-weight-bold text-primary">Laporan Detail Nilai Akhir Mentee</h6>
                         <h6 class="m-0 font-weight-bold text-primary">Uji Bisnis Improvment Prajabatan Tingkat S2 PLN Group</h6>
+                        </center>
                         <!-- <a href="#" class="btn btn-sm btn-primary" id="btnprint" style="right:10px;">Print</a> -->
                         </div>
                         <div class="card-body">
                         <div class="table-responsive">
-                <table class="table table-bordered"  width="20%" cellspacing="0">
+                <table class="table table-bordered table-sm"  width="20%" cellspacing="0">
                   <thead>
                     <tr>
                     <th>No</th>
@@ -114,7 +116,7 @@
                       <th colspan="2">
                       Total Nilai
                       </th>
-                      <td colspan="14">
+                      <td colspan="15">
                       @php 
                           echo($semuanilai);
                        @endphp

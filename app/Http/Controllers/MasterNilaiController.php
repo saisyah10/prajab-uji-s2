@@ -118,7 +118,7 @@ class MasterNilaiController extends Controller
 
         $datad = Masternilai::where('id_siswa',$request->id_siswa)->get();
         
-        $datas = Siswa::where('id',$id)->first();
+        $datas = Siswa::where('id',$request->id_siswa)->first();
         $semuanilai = 0;
 
         foreach( $datad as $datadetail)

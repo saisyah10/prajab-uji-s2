@@ -66,19 +66,19 @@
                         <td>{{$datas->s_nama}}</td>
                         <td>{{$datas->p_nama}}</td>
                         <td>{{$datas->kelas_penguji}}</td>
-                        <td>{{$datas->total_subkat_1}} </td>
-                        <td>{{$datas->total_subkat_2}} </td>
-                        <td>{{$datas->total_subkat_3}} </td>
-                        <td>{{$datas->total_subkat_4}} </td>
-                        <td>{{$datas->total_subkat_5}} </td>
-                        <td>{{$datas->total_subkat_6}} </td>
-                        <td>{{$datas->total_subkat_7}} </td>
-                        <td>{{$datas->total_subkat_8}} </td>
-                        <td>{{$datas->total_subkat_9}} </td>
-                        <td>{{$datas->total_subkat_10}} </td>
-                        <td>{{$datas->total_subkat_11}} </td>
-                        <td>{{$datas->total_subkat_12}} </td>
-                        <td>{{number_format($datas->total_nilai_subkat,3)}}</td>
+                        <td>{{number_format($datas->total_subkat_1,2)}} </td>
+                        <td>{{number_format($datas->total_subkat_2,2)}} </td>
+                        <td>{{number_format($datas->total_subkat_3,2)}} </td>
+                        <td>{{number_format($datas->total_subkat_4,2)}} </td>
+                        <td>{{number_format($datas->total_subkat_5,2)}} </td>
+                        <td>{{number_format($datas->total_subkat_6,2)}} </td>
+                        <td>{{number_format($datas->total_subkat_7,2)}} </td>
+                        <td>{{number_format($datas->total_subkat_8,2)}} </td>
+                        <td>{{number_format($datas->total_subkat_9,2)}} </td>
+                        <td>{{number_format($datas->total_subkat_10,2)}} </td>
+                        <td>{{number_format($datas->total_subkat_11,2)}} </td>
+                        <td>{{number_format($datas->total_subkat_12,2)}} </td>
+                        <td>{{number_format($datas->total_nilai_subkat,2)}}</td>
                     </tr>
                       @php $semuanilai += $datas->total_nilai_subkat/3;
                          
@@ -90,7 +90,7 @@
                       </th>
                       <td colspan="14">
                       @php 
-                          echo(number_format($semuanilai,3));
+                          echo(number_format($semuanilai,2));
                        @endphp
                        </td>
                     </tr>                    

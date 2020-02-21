@@ -24,7 +24,7 @@
                 </div>
             </div>
             @if(Session::has('alert-success'))
-                <div class="alert alert-success">
+            <div class="alert alert-success" style="background-color:#00FF00;">
                     <strong>{{ \Illuminate\Support\Facades\Session::get('alert-success') }}</strong>
                 </div>
             @endif
