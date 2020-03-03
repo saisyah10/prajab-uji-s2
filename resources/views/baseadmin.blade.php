@@ -106,16 +106,13 @@
     </ul>
     <!-- End of Sidebar -->
 
-    @else
-
-@endif
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
    
       <!-- Main Content -->
       <div id="content">
 
-      @if(Session::get('status_admin')=='login')
+      
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -182,7 +179,13 @@
 
         </nav>
 
-      @endif  
+    @else
+
+    <script>window.location = "/";</script>
+
+@endif
+    
+    
         <!-- End of Topbar -->
 
     @yield('content')

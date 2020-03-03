@@ -83,3 +83,5 @@ Route::get('/user/lihathasil/{id}','MasterNilaiController@showhasil');
 Route::get('/user/edithasil/{id}','MasterNilaiController@edithasil');
 
 Route::post('/user/updatehasilpost/{id}','MasterNilaiController@updatehasil');
+
+Route::get('/user/exportdetail_excel/{id}', 'MasterNilaiController@exportdetail_excel');

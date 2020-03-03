@@ -35,7 +35,7 @@
 
 <link href="{{ asset('assets/css_frontEnd/css/style.css') }}" rel="stylesheet" >
 @else
-
+<script>window.location = "/user";</script>
 @endif
 
 </head>

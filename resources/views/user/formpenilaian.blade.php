@@ -28,6 +28,7 @@
                 <label for="status">Kelas : </label>
                 <!-- <input type="text"  class="form-control" id="status" name="status" value="{{Session::get('status')}}" disabled> -->
                 <select name="status" id="status" class="custom-select" style="width:700px;">
+                <option value="" selected>Pilih Kelas</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 </select>
@@ -38,6 +39,7 @@
               
               <label for="namasiswa">Nama Siswa : </label>
                   <select name="namasiswa" id="namasiswa" class="custom-select" style="width:700px;">
+                  <option value="#" selected>Nama Siswa</option>
                   @foreach($data_siswa as $datas)
                   <option value="{{$datas->id}}" data-note="{{$datas->notest}}">{{$datas->nama}}</option>
                   @endforeach 
@@ -102,6 +104,17 @@
                 <strong>{{ $message }}</strong>
               </div>
             @endif
+
+            @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <div class="form-group">
                   <input type="text" id="id_siswa" class="form-control" name="id_siswa" value="" hidden="true" > 
               </div>
@@ -132,7 +145,7 @@
                     
                     <td style="color:#000000;" class="text-justify">Mampu menjelaskan latar belakang permasalahan yang diangkat dari sudut pandang yang lebih luas (kenegaraan/korporasi) menjadi permasalahan yang lebih spesifik (unit/organisasi). <br>Mampu mengembangkan paradigma untuk melihat detail permasalahan tanpa kehulangan sudut pandang strategis.</td>
                     <td style="color:#000000;">
-                    <input type="text" class="form-control" style="background-color:#D3D3D3" id="skategori1" name="skategori1" Minlength="2" Maxlength="3" >
+                    <input type="text" class="form-control" style="background-color:#D3D3D3" id="skategori1" name="skategori1" Minlength="2" Maxlength="3" min="1" max="100">
                   </td>
                   </tr>
                   <tr>

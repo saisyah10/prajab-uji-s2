@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Feb 2020 pada 17.12
--- Versi server: 10.3.16-MariaDB
--- Versi PHP: 7.1.30
+-- Waktu pembuatan: 03 Mar 2020 pada 07.25
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.3.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,7 +44,8 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `nama`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (2, 'Saisyah', 'reno@gmail.com', '$2y$10$gk9c8PJYBiDipcdzrDdCk.cF0QvfsX/Jhmvc/w483RWx/afGiYY9u', NULL, '2020-01-22 00:46:57', '2020-01-22 00:46:57'),
-(3, 'andi', 'aay@gmail.com', '$2y$10$xVZRyo2NRjwZcH9j5A/lg.xAXqcztRT4yjoAXSmjVuNuQiCcu3Iw2', NULL, '2020-01-22 00:49:46', '2020-01-22 00:49:46');
+(3, 'andi', 'aay@gmail.com', '$2y$10$xVZRyo2NRjwZcH9j5A/lg.xAXqcztRT4yjoAXSmjVuNuQiCcu3Iw2', NULL, '2020-01-22 00:49:46', '2020-01-22 00:49:46'),
+(4, 'farhan', 'aan098@gmail.com', 'qwerty', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -56,7 +57,7 @@ CREATE TABLE `masternilai` (
   `id` int(10) UNSIGNED NOT NULL,
   `id_siswa` int(10) UNSIGNED NOT NULL,
   `id_penguji` int(10) UNSIGNED NOT NULL,
-  `status_penguji` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kelas_penguji` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nilai_subkat_1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nilai_subkat_2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nilai_subkat_3` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -90,10 +91,11 @@ CREATE TABLE `masternilai` (
 -- Dumping data untuk tabel `masternilai`
 --
 
-INSERT INTO `masternilai` (`id`, `id_siswa`, `id_penguji`, `status_penguji`, `nilai_subkat_1`, `nilai_subkat_2`, `nilai_subkat_3`, `nilai_subkat_4`, `nilai_subkat_5`, `nilai_subkat_6`, `nilai_subkat_7`, `nilai_subkat_8`, `nilai_subkat_9`, `nilai_subkat_10`, `nilai_subkat_11`, `nilai_subkat_12`, `total_subkat_1`, `total_subkat_2`, `total_subkat_3`, `total_subkat_4`, `total_subkat_5`, `total_subkat_6`, `total_subkat_7`, `total_subkat_8`, `total_subkat_9`, `total_subkat_10`, `total_subkat_11`, `total_subkat_12`, `total_nilai_subkat`, `created_at`, `updated_at`) VALUES
+INSERT INTO `masternilai` (`id`, `id_siswa`, `id_penguji`, `kelas_penguji`, `nilai_subkat_1`, `nilai_subkat_2`, `nilai_subkat_3`, `nilai_subkat_4`, `nilai_subkat_5`, `nilai_subkat_6`, `nilai_subkat_7`, `nilai_subkat_8`, `nilai_subkat_9`, `nilai_subkat_10`, `nilai_subkat_11`, `nilai_subkat_12`, `total_subkat_1`, `total_subkat_2`, `total_subkat_3`, `total_subkat_4`, `total_subkat_5`, `total_subkat_6`, `total_subkat_7`, `total_subkat_8`, `total_subkat_9`, `total_subkat_10`, `total_subkat_11`, `total_subkat_12`, `total_nilai_subkat`, `created_at`, `updated_at`) VALUES
 (1, 3, 4, '3', '90', '90', '90', '90', '90', '90', '90', '70', '80', '80', '90', '90', 2.25, 2.25, 9, 9, 9, 9, 4.5, 7, 8, 4, 9, 13.5, 86.5, '2020-02-14 17:00:00', '2020-02-15 19:56:24'),
 (2, 3, 4, '2', '100', '100', '100', '100', '100', '100', '100', '100', '100', '100', '100', '100', 2.5, 2.5, 10, 10, 10, 10, 5, 10, 10, 5, 10, 15, 100, NULL, '2020-02-15 19:56:24'),
-(4, 3, 4, '1', '80', '80', '80', '90', '80', '80', '70', '80', '80', '80', '70', '80', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-16 09:06:09', '2020-02-16 09:06:09');
+(4, 3, 4, '1', '80', '80', '80', '90', '80', '80', '70', '80', '80', '80', '70', '80', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-16 09:06:09', '2020-02-16 09:06:09'),
+(5, 1, 5, 'A', '90', '90', '90', '89', '89', '89', '79', '79', '78', '78', '78', '78', 2.25, 2.25, 9, 8.9, 8.9, 8.9, 3.95, 7.9, 7.8, 3.9, 7.8, 11.7, 83.25, '2020-03-02 23:15:15', '2020-03-02 23:15:16');
 
 -- --------------------------------------------------------
 
@@ -153,7 +155,8 @@ CREATE TABLE `penguji` (
 --
 
 INSERT INTO `penguji` (`id`, `nama`, `jabatan`, `username`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(4, 'si udin', 'direksi', 'plnudin', '$2y$10$HQA/QPSqcichGPgjDuuks.FttExJSW7QUJu2mnpxt/.LRP92hxF4.', NULL, '2020-01-27 18:51:03', '2020-01-27 18:51:03');
+(4, 'si udin', 'direksi', 'plnudin', '$2y$10$HQA/QPSqcichGPgjDuuks.FttExJSW7QUJu2mnpxt/.LRP92hxF4.', NULL, '2020-01-27 18:51:03', '2020-01-27 18:51:03'),
+(5, 'farhan555', 'manager', 'farhan555', 'qwerty', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -177,7 +180,7 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id`, `nama`, `notest`, `nilai`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'ANINDITYO BASKORO AJI', '1901/ICE/65/S2-MAN/10257', NULL, NULL, NULL, '2020-02-10 20:44:11', '2020-02-10 20:44:11'),
+(1, 'ANINDITYO BASKORO AJI', '1901/ICE/65/S2-MAN/10257', 27.75, 'TIDAK LULUS', NULL, '2020-02-10 20:44:11', '2020-03-02 23:15:16'),
 (2, 'AKBAR DWIYOGA NUGRAHA', '1901/ICE/65/S2-SI/10414', NULL, NULL, NULL, '2020-02-10 20:48:39', '2020-02-10 20:48:39'),
 (3, 'ABDI SURYA', '1901/ICE/65/S2-OIL/10388', 87.85000000000001, 'LULUS', NULL, '2020-02-10 20:51:17', '2020-02-15 20:40:32'),
 (4, 'ALGHIFARY', '1901/ICE/65/S2-MAN/10249', NULL, NULL, NULL, '2020-02-10 20:51:49', '2020-02-10 20:51:49'),
@@ -283,13 +286,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `masternilai`
 --
 ALTER TABLE `masternilai`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -301,7 +304,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `penguji`
 --
 ALTER TABLE `penguji`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `siswa`

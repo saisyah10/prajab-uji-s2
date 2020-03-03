@@ -34,7 +34,7 @@
 
     <!-- Sidebar -->
 
-    @if(Session::get('login')=='TRUE')
+    @if(Session::get('status') == 'login')
     
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
@@ -55,7 +55,7 @@
     <!-- End of Sidebar -->
 
     @else
-
+    <script>window.location = "/user";</script>
 @endif
     <!-- Content Wrapper -->
     
@@ -64,19 +64,7 @@
       <!-- Main Content -->
       <div id="content">
 
-      @if(Session::get('login')=='TRUE')
-        <!-- Topbar -->
-        <!-- <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"> -->
-
-          <!-- Sidebar Toggle (Topbar) -->
-          
-          <!-- Topbar Navbar -->
-          <!-- <ul class="navbar-nav ml-auto">
-          </li> -->
-
-        <!-- </nav> -->
-
-      @endif  
+ 
         <!-- End of Topbar -->
 
     @yield('content')

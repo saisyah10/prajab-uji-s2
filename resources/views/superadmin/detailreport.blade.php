@@ -16,9 +16,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <div class="row" align="right">
-              <!-- <h6 class="m-0 font-weight-bold text-primary">Tabel Nilai Detail Siswa</h6> -->
-              @php $data_id = 0;@endphp
+            @php $data_id = 0;@endphp
               @foreach($datad as $datas)
 
               @php 
@@ -26,7 +24,14 @@
               @endphp
               
               @endforeach
-              <a href="/user/PrintDetailReport/{{$data_id}}" class="btn btn-sm btn-primary" id="btnprint" target="_BLANK" style="right:10px;">Print</a>
+              <div class="row" >
+              <!-- <h6 class="m-0 font-weight-bold text-primary">Tabel Nilai Detail Siswa</h6> -->
+              <!-- <div class="col-md-6">
+              <a href="/user/exportdetail_excel/{{$data_id}}" class="btn btn-sm btn-success my-3" target="_blank" style="margin-right:50px;">EXPORT EXCEL</a>
+              </div> -->
+              <div class="col-md-12" align="right">
+              <a href="/user/PrintDetailReport/{{$data_id}}" class="btn btn-sm  btn-primary my-3" id="btnprint" target="_BLANK" >PRINT LAPORAN</a>
+               </div>
                 </div>
             </div>
             @if(Session::has('alert-success'))
@@ -42,7 +47,7 @@
                     <th>No</th>
                     <th>Nama Siswa</th>
                     <th>Nama Penguji</th>
-                    <th>Keterangan Penguji</th>
+                    <th>Kelas Penguji</th>
                     <th>Nilai Sub Kategori 1 Bobot 2,5%</th>
                     <th>Nilai Sub Kategori 2 Bobot 2,5%</th>
                     <th>Nilai Sub Kategori 3 Bobot 10%</th>
@@ -59,8 +64,11 @@
                     </tr>
                   </thead>
                   <tbody>
+                
                   @php $no = 1; $semuanilai=0; $id=0; @endphp
+              @if(count($dataq) > 1)
                 @foreach($dataq as $datas)
+                  
                     <tr>
                         <td>{{$no++ }}</td>
                         <td>{{$datas->s_nama}}</td>
@@ -80,10 +88,16 @@
                         <td>{{number_format($datas->total_subkat_12,2)}} </td>
                         <td>{{number_format($datas->total_nilai_subkat,2)}}</td>
                     </tr>
+                  
                       @php $semuanilai += $datas->total_nilai_subkat/3;
                          
                        @endphp
-                    @endforeach    
+                    @endforeach  
+                  @else
+                    <tr>
+                        <th colspan="17"><center>Data Belum diisi</center></th>
+                    </tr>
+                  @endif  
                     <tr>
                       <th colspan="2">
                       Total Nilai

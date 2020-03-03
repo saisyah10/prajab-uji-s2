@@ -28,10 +28,14 @@
           <!-- DataTales Example -->
           <div id="bagianprint" class="card shadow mb-4">
             <div class="card-header py-3">
-              <!-- <h6 class="m-0 font-weight-bold text-primary">Laporan Nilai Akhir Siswa</h6> -->
-              <a href="/user/PrintReport" class="btn btn-sm btn-primary" id="btnprn" target="_BLANK" style="right:10px;">Print</a>
-              <!-- <button name="printreport" class="btn btn-sm btn-primary" id="printreport" >Print</button> -->
-              
+            <div class="row">
+            <!-- <div class="col-md-6">
+              <a href="/user/exportdetail_excel" class="btn btn-sm btn-success my-3" target="_blank" style="margin-right:50px;">EXPORT EXCEL</a>
+              </div> -->
+              <div class="col-md-12" align="right">
+              <a href="/user/PrintReport" class="btn btn-sm btn-primary my-3" id="btnprn" target="_BLANK" style="right:10px;">PRINT LAPORAN</a>
+              </div>
+              </div>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -54,7 +58,11 @@
                         <td>{{$datas->notest}}</td>
                         <td>{{$datas->nama}}</td>
                         <td>{{number_format($datas->nilai,3)}}</td>
-                        <td>{{$datas->status}}</td>
+                      @if($datas->status == null)
+                      <td>TIDAK LULUS</td>  
+                      @else
+                      <td>{{$datas->status}}</td>
+                      @endif
                         <td class="action"><a href="/superadmin/detailreport/{{$datas->id}}" class=" btn btn-sm btn-primary">Detail</a></td>
                     </tr>
                 @endforeach

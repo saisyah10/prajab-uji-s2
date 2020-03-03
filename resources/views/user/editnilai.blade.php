@@ -97,6 +97,16 @@
                 <strong>{{ $message }}</strong>
               </div>
             @endif
+
+            @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="form-group">
                   <input type="text" id="id_siswa" class="form-control" name="id_siswa" value="{{$datas->id_siswa}}" hidden="true" > 
                   <input type="text" id="id_nilai" class="form-control" name="id_nilai" value="{{$datas->id}}" hidden="true" >

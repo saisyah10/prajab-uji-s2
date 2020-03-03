@@ -62,7 +62,7 @@
                         <td>{{$no++ }}</td>
                         <td>{{$datas->s_nama}}</td>
                         <td>{{$datas->kelas_penguji}}</td>
-                        <td><input type="text"  class="form-control" id="tsk1" name="tsk1" Minlength="2" Maxlength="3" value="{{number_format($datas->nilai_subkat_1,3)}}" disabled> </td>
+                        <td><input type="text"  class="form-control" id="tsk1" name="tsk1" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_1}}" disabled> </td>
                         <td><input type="text"  class="form-control" id="tsk2" name="tsk2" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_2}}" disabled> </td>
                         <td><input type="text"  class="form-control" id="tsk3" name="tsk3" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_3}}" disabled> </td>
                         <td><input type="text"  class="form-control" id="tsk4" name="tsk4" Minlength="2" Maxlength="3" value="{{$datas->nilai_subkat_4}}" disabled> </td>
