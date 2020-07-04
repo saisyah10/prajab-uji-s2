@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Mar 2020 pada 07.25
+-- Waktu pembuatan: 04 Jul 2020 pada 12.02
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.3.14
 
@@ -83,6 +83,19 @@ CREATE TABLE `masternilai` (
   `total_subkat_11` double DEFAULT NULL,
   `total_subkat_12` double DEFAULT NULL,
   `total_nilai_subkat` double DEFAULT NULL,
+  `komentar` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `keterangan_1` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `keterangan_2` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `keterangan_3` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `keterangan_4` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `keterangan_5` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `keterangan_6` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `keterangan_7` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `keterangan_8` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `keterangan_9` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `keterangan_10` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `keterangan_11` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `keterangan_12` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -91,11 +104,15 @@ CREATE TABLE `masternilai` (
 -- Dumping data untuk tabel `masternilai`
 --
 
-INSERT INTO `masternilai` (`id`, `id_siswa`, `id_penguji`, `kelas_penguji`, `nilai_subkat_1`, `nilai_subkat_2`, `nilai_subkat_3`, `nilai_subkat_4`, `nilai_subkat_5`, `nilai_subkat_6`, `nilai_subkat_7`, `nilai_subkat_8`, `nilai_subkat_9`, `nilai_subkat_10`, `nilai_subkat_11`, `nilai_subkat_12`, `total_subkat_1`, `total_subkat_2`, `total_subkat_3`, `total_subkat_4`, `total_subkat_5`, `total_subkat_6`, `total_subkat_7`, `total_subkat_8`, `total_subkat_9`, `total_subkat_10`, `total_subkat_11`, `total_subkat_12`, `total_nilai_subkat`, `created_at`, `updated_at`) VALUES
-(1, 3, 4, '3', '90', '90', '90', '90', '90', '90', '90', '70', '80', '80', '90', '90', 2.25, 2.25, 9, 9, 9, 9, 4.5, 7, 8, 4, 9, 13.5, 86.5, '2020-02-14 17:00:00', '2020-02-15 19:56:24'),
-(2, 3, 4, '2', '100', '100', '100', '100', '100', '100', '100', '100', '100', '100', '100', '100', 2.5, 2.5, 10, 10, 10, 10, 5, 10, 10, 5, 10, 15, 100, NULL, '2020-02-15 19:56:24'),
-(4, 3, 4, '1', '80', '80', '80', '90', '80', '80', '70', '80', '80', '80', '70', '80', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-16 09:06:09', '2020-02-16 09:06:09'),
-(5, 1, 5, 'A', '90', '90', '90', '89', '89', '89', '79', '79', '78', '78', '78', '78', 2.25, 2.25, 9, 8.9, 8.9, 8.9, 3.95, 7.9, 7.8, 3.9, 7.8, 11.7, 83.25, '2020-03-02 23:15:15', '2020-03-02 23:15:16');
+INSERT INTO `masternilai` (`id`, `id_siswa`, `id_penguji`, `kelas_penguji`, `nilai_subkat_1`, `nilai_subkat_2`, `nilai_subkat_3`, `nilai_subkat_4`, `nilai_subkat_5`, `nilai_subkat_6`, `nilai_subkat_7`, `nilai_subkat_8`, `nilai_subkat_9`, `nilai_subkat_10`, `nilai_subkat_11`, `nilai_subkat_12`, `total_subkat_1`, `total_subkat_2`, `total_subkat_3`, `total_subkat_4`, `total_subkat_5`, `total_subkat_6`, `total_subkat_7`, `total_subkat_8`, `total_subkat_9`, `total_subkat_10`, `total_subkat_11`, `total_subkat_12`, `total_nilai_subkat`, `komentar`, `keterangan_1`, `keterangan_2`, `keterangan_3`, `keterangan_4`, `keterangan_5`, `keterangan_6`, `keterangan_7`, `keterangan_8`, `keterangan_9`, `keterangan_10`, `keterangan_11`, `keterangan_12`, `created_at`, `updated_at`) VALUES
+(1, 3, 4, '3', '90', '90', '90', '90', '90', '90', '90', '70', '80', '80', '90', '90', 2.25, 2.25, 9, 9, 9, 9, 4.5, 7, 8, 4, 9, 13.5, 86.5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-14 17:00:00', '2020-02-15 19:56:24'),
+(2, 3, 4, '2', '100', '100', '100', '100', '100', '100', '100', '100', '100', '100', '100', '100', 2.5, 2.5, 10, 10, 10, 10, 5, 10, 10, 5, 10, 15, 100, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-15 19:56:24'),
+(4, 3, 4, '1', '80', '80', '80', '90', '80', '80', '70', '80', '80', '80', '70', '80', 2, 2, 8, 9, 8, 8, 3.5, 8, 8, 4, 7, 12, 79.5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-16 09:06:09', '2020-03-03 00:21:05'),
+(5, 1, 5, 'A', '77', '90', '90', '89', '89', '89', '79', '79', '78', '78', '78', '78', 1.925, 2.25, 9, 8.9, 8.9, 8.9, 3.95, 7.9, 7.8, 3.9, 7.8, 11.7, 82.925, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-02 23:15:15', '2020-03-03 01:44:16'),
+(6, 1, 5, 'A', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', 2.25, 2.25, 9, 9, 9, 9, 4.5, 9, 9, 4.5, 9, 13.5, 90, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-03 01:37:40', '2020-03-03 01:37:41'),
+(7, 3, 5, 'A', '77', '77', '77', '77', '77', '77', '77', '77', '77', '77', '77', '77', 1.925, 1.925, 7.7, 7.7, 7.7, 7.7, 3.85, 7.7, 7.7, 3.85, 7.7, 11.55, 77, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-03 01:44:51', '2020-03-03 01:44:51'),
+(8, 1, 5, 'A', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', 2.25, 2.25, 9, 9, 9, 9, 4.5, 9, 9, 4.5, 9, 13.5, 90, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-07-04 02:47:42', '2020-07-04 02:47:42'),
+(9, 2, 5, 'A', '80', '90', '80', '80', '80', '70', '90', '80', '90', '80', '80', '90', 2, 2.25, 8, 8, 8, 7, 4.5, 8, 9, 4, 8, 13.5, 82.25, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-07-04 02:53:10', '2020-07-04 02:53:10');
 
 -- --------------------------------------------------------
 
@@ -156,7 +173,9 @@ CREATE TABLE `penguji` (
 
 INSERT INTO `penguji` (`id`, `nama`, `jabatan`, `username`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (4, 'si udin', 'direksi', 'plnudin', '$2y$10$HQA/QPSqcichGPgjDuuks.FttExJSW7QUJu2mnpxt/.LRP92hxF4.', NULL, '2020-01-27 18:51:03', '2020-01-27 18:51:03'),
-(5, 'farhan555', 'manager', 'farhan555', 'qwerty', NULL, NULL, NULL);
+(5, 'farhan555', 'manager', 'farhan555', 'qwerty', NULL, NULL, NULL),
+(6, 'aisyah', 'general manager', 'aisyah', 'qwerty', NULL, '2020-03-03 05:48:28', '2020-03-03 05:48:28'),
+(7, 'aayis', 'manager sub divisi', 'aayis', 'qwerty', NULL, '2020-03-03 05:48:57', '2020-03-03 05:48:57');
 
 -- --------------------------------------------------------
 
@@ -180,16 +199,16 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id`, `nama`, `notest`, `nilai`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'ANINDITYO BASKORO AJI', '1901/ICE/65/S2-MAN/10257', 27.75, 'TIDAK LULUS', NULL, '2020-02-10 20:44:11', '2020-03-02 23:15:16'),
-(2, 'AKBAR DWIYOGA NUGRAHA', '1901/ICE/65/S2-SI/10414', NULL, NULL, NULL, '2020-02-10 20:48:39', '2020-02-10 20:48:39'),
-(3, 'ABDI SURYA', '1901/ICE/65/S2-OIL/10388', 87.85000000000001, 'LULUS', NULL, '2020-02-10 20:51:17', '2020-02-15 20:40:32'),
-(4, 'ALGHIFARY', '1901/ICE/65/S2-MAN/10249', NULL, NULL, NULL, '2020-02-10 20:51:49', '2020-02-10 20:51:49'),
-(5, 'Andi Ahmad Fauzan', '1901/ICE/65/S2-MAN/10253', NULL, NULL, NULL, '2020-02-10 20:52:17', '2020-02-10 20:52:17'),
-(6, 'BAYU ARDIYANTO', '1901/ICE/65/S2-EBT/10009', NULL, NULL, NULL, '2020-02-10 20:52:37', '2020-02-10 20:52:37'),
-(7, 'DHIA ATIKAH ALIYYU', '1901/ICE/65/S2-LIN/10204', NULL, NULL, NULL, '2020-02-10 20:53:00', '2020-02-10 20:53:00'),
-(8, 'FAISAL AHMAD', '1901/ICE/65/S2-EBT/10013', NULL, NULL, NULL, '2020-02-10 20:53:18', '2020-02-10 20:53:18'),
-(9, 'FARIS HIBATULAZIZ', '1901/ICE/65/S2-ELE/10059', NULL, NULL, NULL, '2020-02-10 20:53:35', '2020-02-10 20:53:35'),
-(10, 'FAVIAN FIRWAN FIRDAUS', '1901/ICE/65/S2-MAN/10276', NULL, NULL, NULL, '2020-02-10 20:53:59', '2020-02-10 20:53:59'),
+(1, 'ANINDITYO BASKORO AJI', '1901/ICE/65/S2-MAN/10257', 87.64166666666667, 'LULUS', NULL, '2020-02-10 20:44:11', '2020-07-04 02:47:42'),
+(2, 'AKBAR DWIYOGA NUGRAHA', '1901/ICE/65/S2-SI/10414', 27.416666666666668, 'TIDAK LULUS', NULL, '2020-02-10 20:48:39', '2020-07-04 02:53:10'),
+(3, 'ABDI SURYA', '1901/ICE/65/S2-OIL/10388', 114.33333333333334, 'LULUS', NULL, '2020-02-10 20:51:17', '2020-03-03 01:44:51'),
+(4, 'ALGHIFARY', '1901/ICE/65/S2-MAN/10249', 0, 'TIDAK LULUS', NULL, '2020-02-10 20:51:49', '2020-03-03 00:24:20'),
+(5, 'Andi Ahmad Fauzan', '1901/ICE/65/S2-MAN/10253', 0, 'TIDAK LULUS', NULL, '2020-02-10 20:52:17', '2020-03-03 00:25:59'),
+(6, 'BAYU ARDIYANTO', '1901/ICE/65/S2-EBT/10009', 0, 'TIDAK LULUS', NULL, '2020-02-10 20:52:37', '2020-03-03 00:31:25'),
+(7, 'DHIA ATIKAH ALIYYU', '1901/ICE/65/S2-LIN/10204', 0, 'TIDAK LULUS', NULL, '2020-02-10 20:53:00', '2020-03-03 00:37:27'),
+(8, 'FAISAL AHMAD', '1901/ICE/65/S2-EBT/10013', 0, 'TIDAK LULUS', NULL, '2020-02-10 20:53:18', '2020-03-03 01:00:02'),
+(9, 'FARIS HIBATULAZIZ', '1901/ICE/65/S2-ELE/10059', 0, 'TIDAK LULUS', NULL, '2020-02-10 20:53:35', '2020-03-03 01:09:17'),
+(10, 'FAVIAN FIRWAN FIRDAUS', '1901/ICE/65/S2-MAN/10276', 0, 'TIDAK LULUS', NULL, '2020-02-10 20:53:59', '2020-03-03 01:25:18'),
 (11, 'FRANSISCUS XAVERIUS GUWOWIJOYO', '1901/ICE/65/S2-EBT/10016', NULL, NULL, NULL, '2020-02-10 20:54:22', '2020-02-10 20:54:22'),
 (12, 'GALING SIWI', '1901/ICE/65/S2-MAN/10282', NULL, NULL, NULL, '2020-02-10 20:54:44', '2020-02-10 20:54:44'),
 (13, 'GITA MAYA LUCIANA', '1901/ICE/65/S2-MES/10362', NULL, NULL, NULL, '2020-02-10 20:55:03', '2020-02-10 20:55:03'),
@@ -292,7 +311,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `masternilai`
 --
 ALTER TABLE `masternilai`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -304,7 +323,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `penguji`
 --
 ALTER TABLE `penguji`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `siswa`

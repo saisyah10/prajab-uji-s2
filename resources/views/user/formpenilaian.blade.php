@@ -263,6 +263,16 @@
                     </div>
                     </td>
                   </tr>
+                  <tr>
+                  <th style="color:#000000;">
+                    Komentar
+                  </th>
+                  <td colspan="4">
+                  <textarea class="form-control" name="komentar"  style="background-color:#D3D3D3">
+                  
+                  </textarea>
+                  </td>
+                  </tr>
                 </tbody>
                 
                 </table>
